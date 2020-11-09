@@ -1,0 +1,32 @@
+- name: check archive
+  stat:
+    path: "{{ archive_path }}/{{ download_filename}}"
+  register: product_archive
+  
+- name: download archive
+  get_url:
+    url: "{{ download_url }}"
+    dest: "{{ archive_path }}/{{ download_filename}}"
+  when: not product_archive.stat.exists  
+
+- name: create product directory
+  file:
+    path: "{{ product_path }}"
+    state: directory
+  register: product_path_creation
+
+- name: check for tar-package
+  become: true
+  package:
+    name: tar
+    state: present
+    
+- name: extract product archive
+  command: 'tar -xvf "{{ archive_path }}/{{ download_filename}}" --strip 1 -C "{{ product_path }}"'
+  when: product_path_creation.changed
+
+- name: create profile directory
+  file:
+    path: "{{ profile_path }}"
+    state: directory
+

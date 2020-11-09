@@ -1,0 +1,16 @@
+- name: sort messages
+  hosts: localhost
+  connection: local
+  vars_files:
+    - mozdev/vars/main.yml
+  tasks:
+  - name: check for jq- and moreutils-package
+    become: true
+    package:
+      name:
+        - jq
+        - moreutils # contains "sponge"; which is actually needed here
+      state: present
+  - name: sort messages
+    script: "mozdev/files/sort_messages.sh"
+

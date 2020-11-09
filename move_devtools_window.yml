@@ -1,0 +1,15 @@
+- name: move devtools window
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: check for xdotool-package
+    become: true
+    package:
+      name: xdotool
+      state: present
+  - name: move devtools window
+    script: "mozdev/files/move_devtools_window.sh {{ x_coord }} {{ y_coord }}"
+    vars:
+      x_coord: 500
+      y_coord: 250
+

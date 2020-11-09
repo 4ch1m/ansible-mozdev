@@ -1,0 +1,12 @@
+- name: install
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - mozdev
+  tasks:
+    - name: install
+      synchronize:
+        src: "{{ src_path }}/"
+        dest: "{{ profile_path }}/extensions/{{ manifest.applications.gecko.id }}/"
+

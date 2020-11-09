@@ -1,0 +1,22 @@
+- name: install
+  hosts: localhost
+  connection: local
+  roles:
+    - mozdev
+  vars:
+    package_prefix:
+    package_name: "{{ manifest.name }}"
+    package_suffix: "{{ manifest.version }}"
+  tasks:
+    - name: clean up
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_fileglob:
+        - "{{ base_path }}/*.xpi"
+    - name: package
+      archive:
+        path: "{{ src_path}}/"
+        dest: "{{ base_path }}/{{ package_prefix }}{{ package_name }}{{ package_suffix }}.xpi"
+        format: zip
+

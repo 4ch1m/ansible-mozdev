@@ -1,0 +1,12 @@
+- name: install
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - mozdev
+  tasks:
+    - name: remove
+      file:
+        path: "{{ profile_path }}/extensions/{{ manifest.applications.gecko.id }}"
+        state: absent
+
