@@ -6,6 +6,6 @@
   tasks:
     - name: remove
       file:
-        path: "{{ profile_path }}/extensions/{{ manifest.applications.gecko.id }}"
+        path: "{{ extension_path }}"
         state: absent
 

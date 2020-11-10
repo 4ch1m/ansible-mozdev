@@ -24,3 +24,7 @@
     path: "{{ profile_path }}"
     state: directory
 
+- name: create addon directory
+  file:
+    path: "{{ extension_path }}"
+    state: directory

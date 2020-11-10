@@ -7,5 +7,5 @@
     - name: install
       synchronize:
         src: "{{ src_path }}/"
-        dest: "{{ profile_path }}/extensions/{{ manifest.applications.gecko.id }}/"
+        dest: "{{ extension_path }}/"
 

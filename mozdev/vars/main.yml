@@ -5,11 +5,13 @@ src_path: "{{ base_path }}/src"
 
 archive_path: "{{ bin_path }}/{{ product_name_short }}"
 
+product_dir: "{{ product_name_long }}-{{ product_version }}"
+product_path: "{{ bin_path }}/{{ product_name_short }}/{{ product_dir }}"
+
 profile_dir: "profile-{{ product_version }}"
 profile_path: "{{ bin_path }}/{{ product_name_short }}/{{ profile_dir }}"
 
-product_dir: "{{ product_name_long }}-{{ product_version }}"
-product_path: "{{ bin_path }}/{{ product_name_short }}/{{ product_dir }}"
+extension_path: "{{ profile_path }}/extensions/{{ manifest.applications.gecko.id }}"
 
 download_filename: "{{ product_name_long }}-{{ product_version }}.tar.bz2"
 download_url: "https://ftp.mozilla.org/pub/{{ product_name_long }}/releases/{{ product_version }}/{{ product_arch }}/{{ product_lang }}/{{ download_filename }}"
