@@ -5,7 +5,8 @@
     - mozdev/vars/main.yml
   tasks:
   - name: check "jq" and "sponge" commands
-    command: command -v jq && command -v sponge
+    shell:
+      cmd: command -v jq && command -v sponge
   - name: sort messages
     script: "mozdev/files/sort_messages.sh"
 

@@ -5,7 +5,8 @@
     - mozdev/vars/main.yml
   tasks:
   - name: check "jq" command
-    command: command -v jq
+    shell:
+      cmd: command -v jq
   - name: find unused messages
     script: "mozdev/files/find_unused_messages.sh '{{ src_path }}'"
 

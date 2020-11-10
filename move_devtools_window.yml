@@ -3,7 +3,8 @@
   connection: local
   tasks:
   - name: check "xdotool" command
-    command: command -v xdotool
+    shell:
+      cmd: command -v xdotool
   - name: move devtools window
     script: "mozdev/files/move_devtools_window.sh {{ x_coord }} {{ y_coord }}"
     vars:
