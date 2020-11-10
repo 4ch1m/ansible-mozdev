@@ -15,12 +15,6 @@
     state: directory
   register: product_path_creation
 
-- name: check for tar-package
-  become: true
-  package:
-    name: tar
-    state: present
-    
 - name: extract product archive
   command: 'tar -xvf "{{ archive_path }}/{{ download_filename}}" --strip 1 -C "{{ product_path }}"'
   when: product_path_creation.changed

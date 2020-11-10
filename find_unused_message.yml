@@ -4,11 +4,8 @@
   vars_files:
     - mozdev/vars/main.yml
   tasks:
-  - name: check for jq-package
-    become: true
-    package:
-      name: jq
-      state: present
+  - name: check "jq" command
+    command: command -v jq
   - name: find unused messages
     script: "mozdev/files/find_unused_messages.sh '{{ src_path }}'"
 

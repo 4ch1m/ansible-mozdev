@@ -2,11 +2,8 @@
   hosts: localhost
   connection: local
   tasks:
-  - name: check for xdotool-package
-    become: true
-    package:
-      name: xdotool
-      state: present
+  - name: check "xdotool" command
+    command: command -v xdotool
   - name: move devtools window
     script: "mozdev/files/move_devtools_window.sh {{ x_coord }} {{ y_coord }}"
     vars:

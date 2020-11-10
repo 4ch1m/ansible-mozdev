@@ -4,13 +4,8 @@
   vars_files:
     - mozdev/vars/main.yml
   tasks:
-  - name: check for jq- and moreutils-package
-    become: true
-    package:
-      name:
-        - jq
-        - moreutils # contains "sponge"; which is actually needed here
-      state: present
+  - name: check "jq" and "sponge" commands
+    command: command -v jq && command -v sponge
   - name: sort messages
     script: "mozdev/files/sort_messages.sh"
 
