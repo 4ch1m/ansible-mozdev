@@ -75,7 +75,7 @@ So this is what it should look like:
 └── package.json
 ```
 
-(A manually created and optional file called `ansible-mozdev.yml`-file (right beside the `ansible-mozdev`-folder) can be used to override the [default variables](mozdev/default/main.yml) (basically **any** variables). But don't forget to pass it in when invoking Ansible.)
+(A manually created and optional file called `ansible-mozdev.yml`-file (right beside the `ansible-mozdev`-folder) can be used to override the [default variables](mozdev/defaults/main.yml) (basically **any** variables). But don't forget to pass it in when invoking Ansible.)
 
 All this will come in handy if you're referencing the playbooks from within a `package.json`-file - which will usually integrate nicely with an IDE. :smirk:
 
