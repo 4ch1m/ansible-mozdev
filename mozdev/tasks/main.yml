@@ -24,6 +24,13 @@
     path: "{{ profile_path }}"
     state: directory
 
+- name: set prefs for profile
+  lineinfile:
+    path: "{{ profile_path }}/prefs.js"
+    line: "{{ item }}"
+    create: yes
+  loop: "{{ profile_prefs }}"
+
 - name: create addon directory
   file:
     path: "{{ extension_path }}"

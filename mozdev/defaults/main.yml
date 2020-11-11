@@ -5,3 +5,8 @@ product_executable: thunderbird
 product_executable_args: "-purgecaches -devtools"
 product_arch: linux-x86_64
 product_lang: en-US
+
+profile_prefs:
+  - 'user_pref("mail.shell.checkDefaultClient", false);'
+  - 'user_pref("devtools.debugger.prompt-connection", false);'
+  - 'user_pref("nglayout.debug.disable_xul_cache", true);'
