@@ -9,4 +9,3 @@
       cmd: command -v jq
   - name: find unused messages
     script: "mozdev/files/find_unused_messages.sh '{{ src_path }}'"
-

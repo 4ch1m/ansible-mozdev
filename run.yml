@@ -7,4 +7,3 @@
     - name: run
       command:
         cmd: "{{ product_path }}/{{ product_executable }} -profile {{ profile_path }} {{ product_executable_args }}"
-

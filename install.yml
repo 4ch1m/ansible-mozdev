@@ -8,4 +8,3 @@
       synchronize:
         src: "{{ src_path }}/"
         dest: "{{ extension_path }}/"
-

@@ -8,4 +8,3 @@
       file:
         path: "{{ extension_path }}"
         state: absent
-

@@ -9,4 +9,3 @@
       cmd: command -v jq && command -v sponge
   - name: sort messages
     script: "mozdev/files/sort_messages.sh"
-

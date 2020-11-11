@@ -17,4 +17,3 @@ download_filename: "{{ product_name_long }}-{{ product_version }}.tar.bz2"
 download_url: "https://ftp.mozilla.org/pub/{{ product_name_long }}/releases/{{ product_version }}/{{ product_arch }}/{{ product_lang }}/{{ download_filename }}"
 
 manifest: "{{ lookup('file', src_path + '/manifest.json') | from_json }}"
-
