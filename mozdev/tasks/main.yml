@@ -1,3 +1,13 @@
+- name: create bin direcotry
+  file:
+    path: "{{ bin_path }}"
+    state: directory
+
+- name: create archive direcotry
+  file:
+    path: "{{ archive_path }}"
+    state: directory
+
 - name: check archive
   stat:
     path: "{{ archive_path }}/{{ download_filename}}"
