@@ -8,4 +8,4 @@
     shell:
       cmd: command -v jq
   - name: find unused messages
-    script: "mozdev/files/find_unused_messages.sh '{{ src_path }}'"
+    script: "mozdev/files/find_unused_messages.sh '{{ src_path }}' '{{ find_unused_messages_ignores | join(';') }}'"
