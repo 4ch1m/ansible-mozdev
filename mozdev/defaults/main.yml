@@ -10,5 +10,3 @@ profile_prefs:
   - 'user_pref("mail.shell.checkDefaultClient", false);'
   - 'user_pref("devtools.debugger.prompt-connection", false);'
   - 'user_pref("nglayout.debug.disable_xul_cache", true);'
-
-find_unused_messages_ignores: []
