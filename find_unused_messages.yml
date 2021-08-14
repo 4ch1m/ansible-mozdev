@@ -1,8 +1,10 @@
 - name: find unused messages
   hosts: localhost
   connection: local
+
   vars_files:
     - mozdev/vars/main.yml
+
   tasks:
     - block:
         - name: check "jq" command

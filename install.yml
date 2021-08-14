@@ -1,8 +1,10 @@
 - name: install
   hosts: localhost
   connection: local
+
   roles:
     - mozdev
+
   tasks:
     - name: install
       synchronize:

@@ -1,12 +1,14 @@
 - name: move devtools window
   hosts: localhost
   connection: local
+
   tasks:
-  - name: check "xdotool" command
-    shell:
-      cmd: command -v xdotool
-  - name: move devtools window
-    script: "mozdev/files/move_devtools_window.sh {{ x_coord }} {{ y_coord }}"
-    vars:
-      x_coord: 500
-      y_coord: 250
+    - name: check "xdotool" command
+      shell:
+        cmd: command -v xdotool
+
+    - name: move devtools window
+      script: "mozdev/files/move_devtools_window.sh {{ x_coord }} {{ y_coord }}"
+      vars:
+        x_coord: 500
+        y_coord: 250
