@@ -12,6 +12,7 @@
   stat:
     path: "{{ archive_path }}/{{ download_filename}}"
   register: product_archive
+  changed_when: false
   
 - name: download archive
   get_url:

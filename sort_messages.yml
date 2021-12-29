@@ -9,6 +9,7 @@
     - name: check "jq" and "sponge" commands
       shell:
         cmd: command -v jq && command -v sponge
+      changed_when: false
 
     - name: sort messages
       shell:
@@ -16,3 +17,4 @@
           find "{{ src_path }}"
           -iname "messages.json"
           -exec bash -c "cat '{}' | jq -S | sponge '{}'" \;
+      changed_when: false

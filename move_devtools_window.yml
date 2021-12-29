@@ -6,6 +6,7 @@
     - name: check "xdotool" command
       shell:
         cmd: command -v xdotool
+      changed_when: false
 
     - name: move devtools window
       script: >
@@ -15,3 +16,4 @@
       vars:
         x_coord: 500
         y_coord: 250
+      changed_when: false
