@@ -11,4 +11,8 @@
         cmd: command -v jq && command -v sponge
 
     - name: sort messages
-      script: "mozdev/files/sort_messages.sh '{{ src_path }}'"
+      shell:
+        cmd: >
+          find "{{ src_path }}"
+          -iname "messages.json"
+          -exec bash -c "cat '{}' | jq -S | sponge '{}'" \;

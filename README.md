@@ -1,10 +1,6 @@
 # ansible-mozdev
 > A collection of Ansible playbooks to aid development of Mozilla Mail Extensions (/ Web Extensions).
 
-```diff
-- WORK IN PROGRESS -
-```
-
   * [Disclaimer](#disclaimer)
   * [Installation](#installation)
   * [Update](#update)
@@ -41,6 +37,8 @@ git submodule add https://github.com/4ch1m/ansible-mozdev.git
 ... to get all playbooks within an `ansible-mozdev`-folder.
 
 ## Update
+
+The cloned repo/submodule can be updated as follows.
 
 ### Cloned
 In the `ansible-mozdev`-folder:
@@ -97,7 +95,7 @@ e.g.
 (See a full example here: [mozext/signatureswitch-me](https://github.com/4ch1m/mozext/tree/master/signatureswitch-me))
 
 ### Playbooks
-Here's a short summary for each script (in alphabetical order):
+Here's a short summary for each playbook (in alphabetical order):
 
 * [find_unused_messages.yml](find_unused_messages.yml)
 
@@ -126,7 +124,10 @@ Here's a short summary for each script (in alphabetical order):
 ### Roles
 * [mozdev](mozdev)
 
-  this role automatically downloads the desired Thunderbird/Firefox binaries; creates the profile-folder; presets development-settings (prefs.js)
+  this role automatically ... 
+  - downloads the desired Thunderbird/Firefox binaries
+  - creates the profile-folder
+  - presets development-settings (prefs.js)
 
 ## License
 Please read the [license](license) file.

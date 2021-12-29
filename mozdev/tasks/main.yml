@@ -26,7 +26,12 @@
   register: product_path_creation
 
 - name: extract product archive
-  command: 'tar -xvf "{{ archive_path }}/{{ download_filename}}" --strip 1 -C "{{ product_path }}"'
+  unarchive:
+    src: "{{ archive_path }}/{{ download_filename}}"
+    dest: "{{ product_path }}"
+    remote_src: yes
+    extra_opts:
+      - --strip 1
   when: product_path_creation.changed
 
 - name: create profile directory

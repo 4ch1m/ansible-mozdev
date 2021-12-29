@@ -6,10 +6,12 @@
     - mozdev/vars/main.yml
 
   tasks:
-    - block:
-        - name: check "jq" command
-          shell:
-            cmd: command -v jq
-        - name: find unused messages
-          script: "mozdev/files/find_unused_messages.sh '{{ src_path }}' '{{ find_unused_messages_ignores | join(';') }}'"
-      when: find_unused_messages_ignores is defined
+    - name: check "jq" command
+      shell:
+        cmd: command -v jq
+
+    - name: find unused messages
+      script: >
+        '{{ playbook_dir }}/mozdev/files/find_unused_messages.sh'
+        '{{ src_path }}'
+        '{{ ( find_unused_messages_ignores | join(';') ) if find_unused_messages_ignores is defined else '' }}'
