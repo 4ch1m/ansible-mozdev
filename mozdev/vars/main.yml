@@ -1,4 +1,4 @@
-base_path: "{{ role_path | basedir }}"
+base_path: "{{ role_path | dirname }}"
 
 bin_path: "{{ base_path }}/bin"
 src_path: "{{ base_path }}/src"
