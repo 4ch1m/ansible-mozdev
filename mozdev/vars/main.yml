@@ -1,4 +1,4 @@
-base_path: "{{ role_path | dirname | dirname }}"
+base_path: "{{ playbook_dir | dirname }}"
 
 bin_path: "{{ base_path }}/bin"
 src_path: "{{ base_path }}/src"
