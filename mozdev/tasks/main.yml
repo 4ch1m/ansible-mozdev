@@ -31,7 +31,7 @@
     cmd: >
       tar -xvf "{{ archive_path }}/{{ download_filename}}"
       --strip 1
-      --directory "{{ product_path }}
+      --directory "{{ product_path }}"
   when: product_path_creation.changed
 
 - name: create profile directory
