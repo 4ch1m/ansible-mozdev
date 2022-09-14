@@ -1,4 +1,4 @@
-- name: install
+- name: run
   hosts: localhost
   connection: local
 

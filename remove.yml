@@ -1,4 +1,4 @@
-- name: install
+- name: remove
   hosts: localhost
   connection: local
 
