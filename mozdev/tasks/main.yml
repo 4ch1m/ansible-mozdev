@@ -1,9 +1,9 @@
-- name: create bin direcotry
+- name: create bin directory
   file:
     path: "{{ bin_path }}"
     state: directory
 
-- name: create archive direcotry
+- name: create archive directory
   file:
     path: "{{ archive_path }}"
     state: directory
