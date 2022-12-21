@@ -1,6 +1,7 @@
 - name: sort messages
   hosts: localhost
   connection: local
+  gather_facts: no
 
   vars_files:
     - mozdev/vars/main.yml

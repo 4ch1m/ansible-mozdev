@@ -1,6 +1,7 @@
 - name: move devtools window
   hosts: localhost
   connection: local
+  gather_facts: no
 
   tasks:
     - name: check "xdotool" command

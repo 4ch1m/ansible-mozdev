@@ -1,6 +1,7 @@
 - name: remove
   hosts: localhost
   connection: local
+  gather_facts: no
 
   roles:
     - mozdev
