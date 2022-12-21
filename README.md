@@ -130,4 +130,4 @@ Here's a short summary for each playbook (in alphabetical order):
   - presets development-settings (prefs.js)
 
 ## License
-Please read the [license](license) file.
+Please read the [license](LICENSE) file.
