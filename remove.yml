@@ -1,13 +1,13 @@
 - name: remove
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   roles:
     - mozdev
 
   tasks:
     - name: remove
-      file:
+      ansible.builtin.file:
         path: "{{ extension_path }}"
         state: absent

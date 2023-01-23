@@ -1,13 +1,13 @@
 - name: install
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   roles:
     - mozdev
 
   tasks:
     - name: install
-      synchronize:
+      ansible.posix.synchronize:
         src: "{{ src_path }}/"
         dest: "{{ extension_path }}/"

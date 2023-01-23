@@ -1,20 +1,20 @@
 - name: find unused messages
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   vars_files:
     - mozdev/vars/main.yml
 
   tasks:
     - name: check "jq" command
-      shell:
+      ansible.builtin.command:
         cmd: command -v jq
       changed_when: false
 
     - name: find unused messages
-      script: >
+      ansible.builtin.script: >
         '{{ playbook_dir }}/mozdev/files/find_unused_messages.sh'
         '{{ src_path }}'
-        '{{ ( find_unused_messages_ignores | join(';') ) if find_unused_messages_ignores is defined else '' }}'
+        '{{ (find_unused_messages_ignores | join(';')) if find_unused_messages_ignores is defined else '' }}'
       changed_when: false

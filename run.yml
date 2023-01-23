@@ -1,14 +1,14 @@
 - name: run
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   roles:
     - mozdev
 
   tasks:
     - name: run
-      shell:
+      ansible.builtin.command:
         cmd: >
           '{{ product_path }}/{{ product_executable }}'
           -profile '{{ profile_path }}'

@@ -1,19 +1,19 @@
 - name: sort messages
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   vars_files:
     - mozdev/vars/main.yml
 
   tasks:
     - name: check "jq" and "sponge" commands
-      shell:
+      ansible.builtin.shell:
         cmd: command -v jq && command -v sponge
       changed_when: false
 
     - name: sort messages
-      shell:
+      ansible.builtin.command:
         cmd: >
           find "{{ src_path }}"
           -iname "messages.json"

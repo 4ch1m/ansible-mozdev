@@ -1,16 +1,16 @@
 - name: move devtools window
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
     - name: check "xdotool" command
-      shell:
+      ansible.builtin.command:
         cmd: command -v xdotool
       changed_when: false
 
     - name: move devtools window
-      script: >
+      ansible.builtin.script: >
         '{{ playbook_dir }}/mozdev/files/move_devtools_window.sh'
         {{ x_coord }}
         {{ y_coord }}

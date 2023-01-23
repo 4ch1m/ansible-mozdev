@@ -1,52 +1,52 @@
 - name: create bin directory
-  file:
+  ansible.builtin.file:
     path: "{{ bin_path }}"
     state: directory
+    mode: "0755"
 
 - name: create archive directory
-  file:
+  ansible.builtin.file:
     path: "{{ archive_path }}"
     state: directory
+    mode: "0755"
 
-- name: check archive
-  stat:
-    path: "{{ archive_path }}/{{ download_filename}}"
-  register: product_archive
-  changed_when: false
-  
 - name: download archive
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ download_url }}"
-    dest: "{{ archive_path }}/{{ download_filename}}"
-  when: not product_archive.stat.exists  
+    dest: "{{ archive_path }}/{{ download_filename }}"
+    mode: "0644"
 
 - name: create product directory
-  file:
+  ansible.builtin.file:
     path: "{{ product_path }}"
     state: directory
+    mode: "0644"
   register: product_path_creation
 
-- name: extract product archive
-  shell:
-    cmd: >
-      tar -xvf "{{ archive_path }}/{{ download_filename}}"
-      --strip 1
-      --directory "{{ product_path }}"
+- name: extract product archive # noqa no-handler
+  ansible.builtin.unarchive:
+    src: "{{ archive_path }}/{{ download_filename }}"
+    dest: "{{ product_path }}"
+    extra_opts:
+      - "--strip 1"
   when: product_path_creation.changed
 
 - name: create profile directory
-  file:
+  ansible.builtin.file:
     path: "{{ profile_path }}"
     state: directory
+    mode: "0755"
 
 - name: set prefs for profile
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ profile_path }}/prefs.js"
     line: "{{ item }}"
-    create: yes
+    create: true
+    mode: "0644"
   loop: "{{ profile_prefs }}"
 
 - name: create addon directory
-  file:
+  ansible.builtin.file:
     path: "{{ extension_path }}"
     state: directory
+    mode: "0755"
