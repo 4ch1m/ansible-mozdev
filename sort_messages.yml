@@ -9,7 +9,10 @@
   tasks:
     - name: check "jq" and "sponge" commands
       ansible.builtin.shell:
-        cmd: command -v jq && command -v sponge
+        cmd: >-
+          command -v jq
+          &&
+          command -v sponge
       changed_when: false
 
     - name: sort messages

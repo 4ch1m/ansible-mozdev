@@ -4,8 +4,8 @@
   gather_facts: false
 
   tasks:
-    - name: check "xdotool" command
-      ansible.builtin.command:
+    - name: check "xdotool" command # noqa command-instead-of-shell
+      ansible.builtin.shell:
         cmd: command -v xdotool
       changed_when: false
 

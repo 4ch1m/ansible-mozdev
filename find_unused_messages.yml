@@ -7,8 +7,8 @@
     - mozdev/vars/main.yml
 
   tasks:
-    - name: check "jq" command
-      ansible.builtin.command:
+    - name: check "jq" command # noqa command-instead-of-shell
+      ansible.builtin.shell:
         cmd: command -v jq
       changed_when: false
 
