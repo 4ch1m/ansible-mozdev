@@ -20,7 +20,7 @@
   ansible.builtin.file:
     path: "{{ product_path }}"
     state: directory
-    mode: "0644"
+    mode: "0755"
   register: product_path_creation
 
 - name: extract product archive # noqa no-handler
