@@ -23,12 +23,13 @@
     mode: "0755"
   register: product_path_creation
 
-- name: extract product archive # noqa no-handler
-  ansible.builtin.unarchive:
-    src: "{{ archive_path }}/{{ download_filename }}"
-    dest: "{{ product_path }}"
-    extra_opts:
-      - "--strip 1"
+- name: extract product archive # noqa command-instead-of-module no-handler
+  ansible.builtin.command:
+    cmd: >-
+      tar -xvf "{{ archive_path }}/{{ download_filename }}"
+      --strip 1
+      --directory "{{ product_path }}"
+  changed_when: false
   when: product_path_creation.changed
 
 - name: create profile directory
